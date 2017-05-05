@@ -1,4 +1,4 @@
-package com.billwork.mvc.database;
+package com.bill.mvc.database.bean;
 
 import javax.persistence.*;
 
@@ -75,5 +75,15 @@ public class enUserEntity {
         result = 31 * result + (pass != null ? pass.hashCode() : 0);
         result = 31 * result + (salt != null ? salt.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "enUserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pass='" + pass + '\'' +
+                ", salt='" + salt + '\'' +
+                '}';
     }
 }

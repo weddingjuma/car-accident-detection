@@ -1,4 +1,4 @@
-package com.billwork.mvc.database;
+package com.bill.mvc.database.bean;
 
 import javax.persistence.*;
 

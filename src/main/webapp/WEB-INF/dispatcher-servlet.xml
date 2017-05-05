@@ -7,7 +7,7 @@
 
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.billwork.mvc"/>
+    <context:component-scan base-package="com.bill.mvc"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>

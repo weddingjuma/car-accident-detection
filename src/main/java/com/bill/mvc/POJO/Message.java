@@ -1,16 +1,17 @@
-package com.billwork.mvc.POJO;
+package com.bill.mvc.POJO;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by chenking on 2017/5/5.
  */
 
-public class Message implements Serializable {
+public class Message<T> implements Serializable {
     private String name;
     private Integer status;
     private String Description;
-    private String Object;
+    private List<T> Object;
 
     public String getName() {
         return name;
@@ -36,11 +37,11 @@ public class Message implements Serializable {
         Description = description;
     }
 
-    public String getObject() {
+    public List<T> getObject() {
         return Object;
     }
 
-    public void setObject(String object) {
+    public void setObject(List<T> object) {
         Object = object;
     }
 }

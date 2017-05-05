@@ -4,10 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.billwork.mvc.database.enUserEntity" table="user" schema="springmvc">
+    <class name="com.bill.mvc.database.bean.enMovieEntity" table="movie" schema="springmvc">
         <id name="id" column="id"/>
         <property name="name" column="name"/>
-        <property name="pass" column="pass"/>
-        <property name="salt" column="salt"/>
+        <property name="second" column="second"/>
+        <property name="type" column="type"/>
     </class>
 </hibernate-mapping>

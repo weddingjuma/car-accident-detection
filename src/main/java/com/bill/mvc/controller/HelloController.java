@@ -1,12 +1,14 @@
-package com.billwork.mvc.controller;
+package com.bill.mvc.controller;
 
 
-import com.billwork.mvc.POJO.Message;
-import com.billwork.mvc.service.UserService;
+import com.bill.mvc.POJO.Message;
+import com.bill.mvc.database.bean.enUserEntity;
+import com.bill.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  *  Created by chenking on 2017/5/5.
@@ -25,13 +27,13 @@ public class HelloController {
         return "hello";
     }
 
-    @RequestMapping ("say/{name}")
-    public @ResponseBody Message say(@PathVariable String name){
-        Message message=new Message();
+    @RequestMapping ("/say/{name}")
+    public @ResponseBody
+    Message say(@PathVariable String name){
+        Message<enUserEntity> message=new Message();
         message.setName(name);
         message.setDescription("OK");
-
-        message.setName(userService.getAllUserNames().get(0));
+       message.setObject( userService.findAllUser());
         return message;
     }
 
