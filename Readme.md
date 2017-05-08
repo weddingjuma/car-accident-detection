@@ -1,5 +1,10 @@
-# Simple Framework
-## framework
+# Car Accident Detection
+
+#Screenshot
+
+![http://movie.tangmocd.cn/billwork/static/upload.html](docs/picture.png) 
+
+# Framework
 * Spring mvc
 * Hibernate (maybe)
 * ActiveMQ
@@ -10,15 +15,15 @@
 2. compile .war file
 3. deploy in the tomcat
 
-# development tool
+# Development tool
 * maven
 * idea
 * Tomcat 8
 
 # Trail
-<href>http://movie.tangmocd.cn/billwork/static/upload.html</href>
+link with <href>http://movie.tangmocd.cn/billwork/static/upload.html</href>
 
-#Contact Us
+# Contact Us
  kenybens@gmail.com
  
  
