@@ -2,14 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <!--hibernate 4-->
     <!--加载资源文件，其中包含变量信息，必须在spring配置文件的最前面加载-->
@@ -39,14 +39,6 @@
        </tx:attributes>
    </tx:advice>
 
-    <!--&lt;!&ndash;aop 配置&ndash;&gt;-->
-    <!--<aop:config expose-proxy="true">-->
-        <!--&lt;!&ndash;只对业务逻辑层实施事务&ndash;&gt;-->
-        <!--<aop:pointcut id="txPointcut" expression="execution(* com.billwork.service..*.*(..))"/>-->
-        <!--&lt;!&ndash;Advisor定义，切入点和通知分别为txPointcut、txAdvice&ndash;&gt;-->
-        <!--<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>-->
-    <!--</aop:config>-->
-
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
@@ -67,5 +59,11 @@
 
     </bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600"/>
+        <property name="maxInMemorySize" value="4096"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <!--测试-->
     <bean id="userServiced" class="com.bill.mvc.service.UserServiceImpl"/>
 </beans>

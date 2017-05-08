@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:amq="http://activemq.apache.org/schema/core" xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://activemq.apache.org/schema/core
+        http://activemq.apache.org/schema/core/activemq-core-5.13.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+
+    <amq:connectionFactory id="amqConnectFactory" brokerURL="tcp://120.25.197.2:61616"  userName="admin" password="cqb#q1w2e3r4"/>
+    <!--activemq-->
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="amqConnectFactory"/>
+        <property name="sessionCacheSize" value="100"/>
+
+    </bean>
+
+    <!--定义队列 Queue-->
+    <bean id="demoQueueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+        <!--队列名字-->
+        <constructor-arg value="moviestart"/>
+    </bean>
+    <!--jms template -->
+    <bean id="jmsQueuetemplate" class="org.springframework.jms.core.JmsTemplate">
+        <constructor-arg name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="demoQueueDestination"/>
+        <property name="receiveTimeout" value="10000"/>
+         <!--队列形式-->
+        <property name="pubSubDomain" value="false"/>
+    </bean>
+    <bean id="jmsTopictemplate" class="org.springframework.jms.core.JmsTemplate">
+        <constructor-arg ref="connectionFactory"/>
+        <property name="pubSubDomain" value="true"/>
+    </bean>
+
+    <!--register lsitenr-->
+    <bean id="queueMessageListener" class="com.bill.mvc.mq.listener.QueueMessageListener"/>
+
+    <bean id="queueListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="demoQueueDestination"/>
+        <property name="messageListener" ref="queueMessageListener"/>
+    </bean>
+
+</beans>

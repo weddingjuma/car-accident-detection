@@ -16,5 +16,5 @@
     </bean>
 
     <!--配置静态资源-->
-    <mvc:resources mapping="/static/**" location="/"/>
+    <mvc:resources mapping="/static/**" location="/static/"/>
 </beans>

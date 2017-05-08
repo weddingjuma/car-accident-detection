@@ -6,12 +6,12 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**
  * Created by chenking on 2017/5/5.
  */
+
 @Transactional
 @Repository("userdao")
 public class UserImpl extends AbstractDao implements UserDao {
