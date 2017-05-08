@@ -1,3 +1,4 @@
+
 # Site settings
 title: Project Pages
 description: "An Integrated Scientific Blogging Template"
@@ -156,3 +157,4 @@ prose:
           element: "checkbox"
           label: "Visual Workflow Chart (Some Layouts)"
           value: "true"
+
