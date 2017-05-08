@@ -1,6 +1,6 @@
 # Car Accident Detection
 
-# Screenshot
+# Screenshot 
 
 ![http://movie.tangmocd.cn/billwork/static/upload.html](docs/picture.png) 
 
